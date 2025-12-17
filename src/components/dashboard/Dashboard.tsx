@@ -46,9 +46,9 @@ export function Dashboard({ address }: DashboardProps) {
     try {
       const newSignal = await generateNewSignal(address);
       if (newSignal) {
-        toast({
-          title: 'Novo Sinal Gerado',
-          description: `${newSignal.action} ${newSignal.token} com ${newSignal.confidence}% de confiança`,
+      toast({
+          title: 'New Signal Generated',
+          description: `${newSignal.action} ${newSignal.token} with ${newSignal.confidence}% confidence`,
         });
       }
     } finally {
@@ -59,16 +59,16 @@ export function Dashboard({ address }: DashboardProps) {
   const formatAccessExpiry = (timestamp: number | null) => {
     if (!timestamp) return 'N/A';
     const date = new Date(timestamp);
-    return date.toLocaleDateString('pt-BR');
+    return date.toLocaleDateString('en-US');
   };
 
   const formatLastUpdate = (timestamp: number | null) => {
-    if (!timestamp) return 'Nunca';
+    if (!timestamp) return 'Never';
     const diff = Date.now() - timestamp;
     const minutes = Math.floor(diff / 60000);
-    if (minutes < 1) return 'Agora mesmo';
-    if (minutes < 60) return `${minutes}min atrás`;
-    return `${Math.floor(minutes / 60)}h atrás`;
+    if (minutes < 1) return 'Just now';
+    if (minutes < 60) return `${minutes}min ago`;
+    return `${Math.floor(minutes / 60)}h ago`;
   };
 
   return (
@@ -84,11 +84,11 @@ export function Dashboard({ address }: DashboardProps) {
         >
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold mb-2">
-                Dashboard de Sinais
+            <h1 className="text-2xl md:text-3xl font-bold mb-2">
+                Signals Dashboard
               </h1>
               <p className="text-muted-foreground">
-                Análises exclusivas geradas pela IA para sua carteira.
+                Exclusive AI-generated analyses for your wallet.
               </p>
             </div>
             <div className="flex items-center gap-3">
@@ -100,12 +100,12 @@ export function Dashboard({ address }: DashboardProps) {
                 {isGenerating ? (
                   <>
                     <RefreshCw className="h-4 w-4 animate-spin" />
-                    Gerando...
+                    Generating...
                   </>
                 ) : (
                   <>
                     <Sparkles className="h-4 w-4" />
-                    Gerar Novo Sinal
+                    Generate New Signal
                   </>
                 )}
               </Button>
@@ -126,7 +126,7 @@ export function Dashboard({ address }: DashboardProps) {
                 <TrendingUp className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Sinais Ativos</p>
+                <p className="text-sm text-muted-foreground">Active Signals</p>
                 <p className="text-2xl font-bold">{signals.length}</p>
               </div>
             </CardContent>
@@ -138,7 +138,7 @@ export function Dashboard({ address }: DashboardProps) {
                 <Activity className="h-5 w-5 text-success" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Taxa de Acerto</p>
+                <p className="text-sm text-muted-foreground">Win Rate</p>
                 <p className="text-2xl font-bold">73%</p>
               </div>
             </CardContent>
@@ -150,7 +150,7 @@ export function Dashboard({ address }: DashboardProps) {
                 <Clock className="h-5 w-5 text-secondary" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Última Análise</p>
+                <p className="text-sm text-muted-foreground">Last Analysis</p>
                 <p className="text-lg font-semibold">{formatLastUpdate(lastUpdate)}</p>
               </div>
             </CardContent>
@@ -162,7 +162,7 @@ export function Dashboard({ address }: DashboardProps) {
                 <Shield className="h-5 w-5 text-warning" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Acesso até</p>
+                <p className="text-sm text-muted-foreground">Access Until</p>
                 <p className="text-lg font-semibold">{formatAccessExpiry(accessExpiry)}</p>
               </div>
             </CardContent>
@@ -179,10 +179,10 @@ export function Dashboard({ address }: DashboardProps) {
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-semibold flex items-center gap-2">
               <Activity className="h-5 w-5 text-primary" />
-              Visão do Mercado
+              Market Overview
             </h2>
             <Badge variant="outline" className="font-mono text-xs">
-              Atualiza a cada 1min
+              Updates every 1min
             </Badge>
           </div>
           <MarketOverview data={marketData} isLoading={isLoading} />
@@ -197,10 +197,10 @@ export function Dashboard({ address }: DashboardProps) {
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-semibold flex items-center gap-2">
               <Sparkles className="h-5 w-5 text-primary" />
-              Sinais de Trading
+              Trading Signals
             </h2>
             <Badge variant="secondary" className="font-mono">
-              {signals.length} sinais
+              {signals.length} signals
             </Badge>
           </div>
 
@@ -215,9 +215,9 @@ export function Dashboard({ address }: DashboardProps) {
               <Card className="glass">
                 <CardContent className="p-12 text-center">
                   <Sparkles className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-                  <h3 className="text-lg font-semibold mb-2">Nenhum sinal disponível</h3>
+                  <h3 className="text-lg font-semibold mb-2">No signals available</h3>
                   <p className="text-muted-foreground mb-4">
-                    Clique no botão acima para gerar um novo sinal de trading.
+                    Click the button above to generate a new trading signal.
                   </p>
                   <Button
                     onClick={handleGenerateSignal}
@@ -225,7 +225,7 @@ export function Dashboard({ address }: DashboardProps) {
                     className="gap-2 bg-gradient-primary"
                   >
                     <Sparkles className="h-4 w-4" />
-                    Gerar Primeiro Sinal
+                    Generate First Signal
                   </Button>
                 </CardContent>
               </Card>

@@ -27,7 +27,7 @@ export function SignalCard({ signal, index }: SignalCardProps) {
           color: 'text-success',
           bg: 'bg-success/10',
           border: 'border-success/30',
-          label: 'COMPRAR',
+          label: 'BUY',
         };
       case 'SELL':
         return {
@@ -35,7 +35,7 @@ export function SignalCard({ signal, index }: SignalCardProps) {
           color: 'text-destructive',
           bg: 'bg-destructive/10',
           border: 'border-destructive/30',
-          label: 'VENDER',
+          label: 'SELL',
         };
       default:
         return {
@@ -43,7 +43,7 @@ export function SignalCard({ signal, index }: SignalCardProps) {
           color: 'text-warning',
           bg: 'bg-warning/10',
           border: 'border-warning/30',
-          label: 'AGUARDAR',
+          label: 'HOLD',
         };
     }
   };
@@ -54,15 +54,15 @@ export function SignalCard({ signal, index }: SignalCardProps) {
   const formatTime = (timestamp: number) => {
     const diff = Date.now() - timestamp;
     const minutes = Math.floor(diff / 60000);
-    if (minutes < 60) return `${minutes}m atrás`;
+    if (minutes < 60) return `${minutes}m ago`;
     const hours = Math.floor(minutes / 60);
-    if (hours < 24) return `${hours}h atrás`;
-    return `${Math.floor(hours / 24)}d atrás`;
+    if (hours < 24) return `${hours}h ago`;
+    return `${Math.floor(hours / 24)}d ago`;
   };
 
   const formatPrice = (price: number) => {
-    if (price >= 1000) return `$${price.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}`;
-    return `$${price.toLocaleString('pt-BR', { maximumFractionDigits: 2 })}`;
+    if (price >= 1000) return `$${price.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
+    return `$${price.toLocaleString('en-US', { maximumFractionDigits: 2 })}`;
   };
 
   return (
@@ -76,7 +76,7 @@ export function SignalCard({ signal, index }: SignalCardProps) {
           <div className="absolute top-2 right-2">
             <Badge variant="secondary" className="gap-1 bg-primary/20 text-primary">
               <Sparkles className="h-3 w-3" />
-              Novo
+              New
             </Badge>
           </div>
         )}
@@ -103,7 +103,7 @@ export function SignalCard({ signal, index }: SignalCardProps) {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Brain className="h-4 w-4 text-primary" />
-              <span>Confiança IA</span>
+              <span>AI Confidence</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-24 h-2 bg-muted rounded-full overflow-hidden">
@@ -121,7 +121,7 @@ export function SignalCard({ signal, index }: SignalCardProps) {
           {/* Price Info */}
           <div className="grid grid-cols-3 gap-2 text-sm">
             <div className="p-2 rounded-lg bg-muted/50">
-              <p className="text-muted-foreground text-xs mb-1">Preço Atual</p>
+              <p className="text-muted-foreground text-xs mb-1">Current Price</p>
               <p className="font-mono font-medium">{formatPrice(signal.price)}</p>
             </div>
             <div className="p-2 rounded-lg bg-success/10">

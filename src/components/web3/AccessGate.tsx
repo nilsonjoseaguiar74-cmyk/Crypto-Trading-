@@ -34,7 +34,7 @@ export function AccessGate() {
           transition={{ delay: 0.3 }}
           className="text-2xl md:text-3xl font-bold mb-4"
         >
-          Acesso Exclusivo
+          Exclusive Access
         </motion.h2>
 
         <motion.p
@@ -43,7 +43,7 @@ export function AccessGate() {
           transition={{ delay: 0.4 }}
           className="text-muted-foreground mb-8"
         >
-          Conecte sua carteira para verificar suas permissões on-chain e acessar os sinais de trading gerados pela nossa IA.
+          Connect your wallet to verify your on-chain permissions and access AI-generated trading signals.
         </motion.p>
 
         <motion.div
@@ -60,7 +60,7 @@ export function AccessGate() {
               className="w-full gap-2 bg-gradient-primary hover:opacity-90 transition-all shadow-glow text-lg py-6"
             >
               <Wallet className="h-5 w-5" />
-              {isConnecting ? 'Verificando...' : 'Conectar MetaMask'}
+              {isConnecting ? 'Verifying...' : 'Connect MetaMask'}
               <ArrowRight className="h-5 w-5 ml-1" />
             </Button>
           ) : (
@@ -75,8 +75,8 @@ export function AccessGate() {
                 variant="outline"
                 className="w-full gap-2 border-primary/30 hover:bg-primary/10 text-lg py-6"
               >
-                <Wallet className="h-5 w-5" />
-                Instalar MetaMask
+              <Wallet className="h-5 w-5" />
+                Install MetaMask
                 <ArrowRight className="h-5 w-5 ml-1" />
               </Button>
             </a>

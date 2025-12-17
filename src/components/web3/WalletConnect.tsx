@@ -52,7 +52,7 @@ export function WalletConnect() {
         <DropdownMenuContent align="end" className="w-56">
           <DropdownMenuLabel className="font-normal">
             <div className="flex flex-col space-y-1">
-              <p className="text-sm font-medium">Carteira Conectada</p>
+              <p className="text-sm font-medium">Connected Wallet</p>
               <p className="text-xs text-muted-foreground font-mono">
                 {formatAddress(address)}
               </p>
@@ -61,7 +61,7 @@ export function WalletConnect() {
           <DropdownMenuSeparator />
           <DropdownMenuItem className="gap-2">
             <CheckCircle className={`h-4 w-4 ${hasAccess ? 'text-success' : 'text-muted-foreground'}`} />
-            <span>{hasAccess ? 'Acesso Ativo' : 'Sem Acesso'}</span>
+            <span>{hasAccess ? 'Access Active' : 'No Access'}</span>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem 
@@ -69,7 +69,7 @@ export function WalletConnect() {
             className="gap-2 text-destructive focus:text-destructive"
           >
             <LogOut className="h-4 w-4" />
-            <span>Desconectar</span>
+            <span>Disconnect</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -90,12 +90,12 @@ export function WalletConnect() {
         {isConnecting ? (
           <>
             <Loader2 className="h-4 w-4 animate-spin" />
-            <span>Conectando...</span>
+            <span>Connecting...</span>
           </>
         ) : (
           <>
             <Wallet className="h-4 w-4" />
-            <span>Conectar Carteira</span>
+            <span>Connect Wallet</span>
           </>
         )}
       </Button>

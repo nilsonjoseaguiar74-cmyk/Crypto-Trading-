@@ -28,13 +28,13 @@ export function Header({ isConnected }: HeaderProps) {
 
         <nav className="hidden md:flex items-center gap-6">
           <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Recursos
+            Features
           </a>
           <a href="#how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Como Funciona
+            How It Works
           </a>
           <a href="#signals" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            Sinais
+            Signals
           </a>
         </nav>
 
@@ -89,8 +89,8 @@ export function Hero({ onConnect }: { onConnect: () => void }) {
             transition={{ delay: 0.3 }}
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight"
           >
-            Trading Inteligente com
-            <span className="block text-gradient mt-2">IA Exclusiva</span>
+            Smart Trading with
+            <span className="block text-gradient mt-2">Exclusive AI</span>
           </motion.h1>
 
           <motion.p
@@ -99,8 +99,8 @@ export function Hero({ onConnect }: { onConnect: () => void }) {
             transition={{ delay: 0.4 }}
             className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
           >
-            Acesse sinais de trading gerados por IA, protegidos por Smart Contracts.
-            Apenas carteiras autorizadas podem visualizar as análises exclusivas.
+            Access AI-generated trading signals protected by Smart Contracts.
+            Only authorized wallets can view the exclusive analyses.
           </motion.p>
 
           <motion.div
@@ -114,7 +114,7 @@ export function Hero({ onConnect }: { onConnect: () => void }) {
               onClick={onConnect}
               className="gap-2 bg-gradient-primary hover:opacity-90 transition-all shadow-glow text-lg py-6 px-8"
             >
-              Começar Agora
+              Get Started
               <ArrowRight className="h-5 w-5" />
             </Button>
             <Button
@@ -122,7 +122,7 @@ export function Hero({ onConnect }: { onConnect: () => void }) {
               variant="outline"
               className="gap-2 border-primary/30 hover:bg-primary/10 text-lg py-6 px-8"
             >
-              Ver Demo
+              View Demo
             </Button>
           </motion.div>
         </div>
@@ -138,17 +138,17 @@ export function Hero({ onConnect }: { onConnect: () => void }) {
             {
               icon: Shield,
               title: 'Wallet-Gated',
-              description: 'Acesso verificado on-chain via Smart Contract',
+              description: 'On-chain verified access via Smart Contract',
             },
             {
               icon: Bot,
-              title: 'IA Avançada',
-              description: 'Análise de mercado em tempo real com machine learning',
+              title: 'Advanced AI',
+              description: 'Real-time market analysis with machine learning',
             },
             {
               icon: LineChart,
-              title: 'Sinais Precisos',
-              description: 'Recomendações com preço alvo e stop loss',
+              title: 'Precise Signals',
+              description: 'Recommendations with target price and stop loss',
             },
           ].map((feature, index) => (
             <motion.div
